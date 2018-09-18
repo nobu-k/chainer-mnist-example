@@ -79,7 +79,7 @@ def main():
 
     # Create a multi node optimizer from a standard Chainer optimizer.
     optimizer = chainermn.create_multi_node_optimizer(
-        chainer.optimizers.Adam(), comm)
+        chainer.optimizers.Adam(), comm, double_buffering=True)
     optimizer.setup(model)
 
     # Split and distribute the dataset. Only worker 0 loads the whole dataset.
